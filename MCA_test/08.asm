@@ -4,7 +4,7 @@ mov R0,#20H
 mov R3,#0AH
 mov R2,#00H
 Clr C
-up:- mov A,@R0
+up: mov A,@R0
 RRC A
 JNC down
 INC R2

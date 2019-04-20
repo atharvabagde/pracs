@@ -61,6 +61,8 @@ SKIP:DJNZ R4,up
 DJNZ R3,Again
 End
 
+Check Output at D:20H
+
 4.	WAP to arrange series of ten 8-bit numbers in descending order. (UnVerified)
 
 mov R3,0AH
@@ -71,9 +73,8 @@ up:mov A,@R0
 mov R1,A
 Inc R0
 mov A,@R0
-CJNE A,R1,next
-SJMP SKIP
-next:JNC SKIP
+SUBB A,R1
+JC SKIP
 mov A,@R0
 DEC R0
 mov @R0,A
@@ -85,7 +86,8 @@ DJNZ R3,Again
 End
 
 5.	WAP to convert two digit BCD number into hex number. (UnVerified)
-6.	WAP to count number of 1’s in a given byte. (UnVerified)
+
+6.	WAP to count number of 1’s in a given byte. (Verified)
 
 mov R0,#20H
 mov R3,#08H
@@ -99,14 +101,18 @@ down:DJNZ R3,up
 mov A,R2
 end
 
-7.	WAP to count number of 0’s in a given byte. (UnVerified)
+Input : D:20H
+Output : Sys register A
+Example : FF -> 8
+
+7.	WAP to count number of 0’s in a given byte. (Verified)
 
 mov R0,#20H
 mov R3,#08H
 mov R2,#00H
 Clr C
 mov A,@R0
-Up:- RRC A
+Up: RRC A
 JC down 
 INC R2
 down:DJNZ R3,up
@@ -114,13 +120,17 @@ mov A,R2
 mov 40H,A
 end
 
-8.	WAP to count even number from a series of ten 8-bit numbers. (UnVerified)
+Input : D:20H
+Output : Sys register A
+Example : 0F -> 4
+
+8.	WAP to count even number from a series of ten 8-bit numbers. (Verified)
 
 mov R0,#20H
 mov R3,#0AH
 mov R2,#00H
 Clr C
-up:- mov A,@R0
+up: mov A,@R0
 RRC A
 JNC down
 INC R2
@@ -129,6 +139,9 @@ DJNZ R3,up
 mov A,R2
 mov 40H,A
 End
+
+Input : D:20H
+Output : D:40H
 
 9.	WAP to count odd number from a series of ten 8-bit numbers. (UnVerified)
 
@@ -146,6 +159,9 @@ mov A,R2
 mov 40H,A
 End
 
+Input : D:20H
+Output : D:40H
+
 10.	WAP to exchange data blocks of 10 bytes. (UnVerified)
 11.	WAP to exchange data block of 10 bytes without exchange instruction. (UnVerified)
 12.	WAP to transfer data blocks of 10 bytes from internal memory to external memory. (Techmax L-9) (UnVerified)
@@ -154,16 +170,19 @@ End
 15.	WAP to find 2’s complement of 16-bit number. (UnVerified)
 16.	WAP to multiply 16-bit no. into 8-bit number. (UnVerified)
 17.	WAP to evaluate expression ‘x2 + x + 1’ where ‘x’ is an 8-bit number. (UnVerified)
+
 18.	WAP to convert packed BCD into unpacked BCD number. (Techmax page L-1) (UnVerified)
 
-MOV A,#09 H
-MOV B, #02 H
-RL  A
-RL  A
-RL  A
-RL  A
-ADD A,B
+MOV A,#92 H
+MOV B,A
+ANL A,0F0 H
+SWAP A
+MOV R1,A
+MOV A,B
+ANL A ,#0F H
+MOV R0,A
 END
+
 
 19.	WAP to convert unpacked BCD into packed BCD number. (Techmax page 4-09) (UnVerified)
 

@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  04                                                                   04/20/2019 19:16:01 PAGE     1
+A51 MACRO ASSEMBLER  04                                                                   04/20/2019 19:34:20 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
@@ -18,9 +18,9 @@ LOC  OBJ            LINE     SOURCE
 0008 F9                8     mov R1,A
 0009 08                9     Inc R0
 000A E6               10     mov A,@R0
-000B                  11     CJNE A,R1,next
-*** ________________________________^
-*** ERROR #A22 IN 11 (04.asm, LINE 11): EXPRESSION TYPE DOES NOT MATCH INSTRUCTION
+000B                  11     CJNE A,R1
+*** _________________________^
+*** ERROR #A38 IN 11 (04.asm, LINE 11): NUMBER OF OPERANDS DOES NOT MATCH INSTRUCTION
 000B 8008             12     SJMP SKIP
 000D 5006             13     next:JNC SKIP
 000F E6               14     mov A,@R0
@@ -32,7 +32,7 @@ LOC  OBJ            LINE     SOURCE
 0015 DCF0             20     SKIP:DJNZ R4,up
 0017 DBE9             21     DJNZ R3,Again
                       22     End
-A51 MACRO ASSEMBLER  04                                                                   04/20/2019 19:16:01 PAGE     2
+A51 MACRO ASSEMBLER  04                                                                   04/20/2019 19:34:20 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------

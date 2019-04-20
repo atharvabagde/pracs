@@ -145,7 +145,7 @@
         <Mm>
           <WinNumber>1</WinNumber>
           <SubType>0</SubType>
-          <ItemText>X:2500H</ItemText>
+          <ItemText>D:20H</ItemText>
           <AccSizeX>0</AccSizeX>
         </Mm>
       </MemoryWindow1>
@@ -207,8 +207,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\03.asm</PathWithFileName>
-      <FilenameWithoutPath>03.asm</FilenameWithoutPath>
+      <PathWithFileName>.\18.asm</PathWithFileName>
+      <FilenameWithoutPath>18.asm</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

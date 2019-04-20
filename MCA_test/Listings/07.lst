@@ -1,14 +1,14 @@
-A51 MACRO ASSEMBLER  06                                                                   04/20/2019 20:24:24 PAGE     1
+A51 MACRO ASSEMBLER  07                                                                   04/20/2019 20:31:18 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
-OBJECT MODULE PLACED IN .\Objects\06.obj
-ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 06.asm SET(SMALL) DEBUG PRINT(.\Listings\06.lst) OBJECT(.\Objects\06.ob
+OBJECT MODULE PLACED IN .\Objects\07.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 07.asm SET(SMALL) DEBUG PRINT(.\Listings\07.lst) OBJECT(.\Objects\07.ob
                       j) EP
 
 LOC  OBJ            LINE     SOURCE
 
-                       1     ;6.     WAP to count number of 1’s in a given byte. (UnVerified)
+                       1     ;7.     WAP to count number of 0’s in a given byte. (UnVerified)
                        2     
 0000 7820              3     mov R0,#20H
 0002 7B08              4     mov R3,#08H
@@ -16,12 +16,13 @@ LOC  OBJ            LINE     SOURCE
 0006 C3                6     Clr C
 0007 E6                7     mov A,@R0
 0008 13                8     Up: RRC A
-0009 5001              9     JNC down 
+0009 4001              9     JC down 
 000B 0A               10     INC R2
 000C DBFA             11     down:DJNZ R3,up
 000E EA               12     mov A,R2
-                      13     end
-A51 MACRO ASSEMBLER  06                                                                   04/20/2019 20:24:24 PAGE     2
+000F F540             13     mov 40H,A
+                      14     end
+A51 MACRO ASSEMBLER  07                                                                   04/20/2019 20:31:18 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------

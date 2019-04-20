@@ -8,9 +8,8 @@ up:mov A,@R0
 mov R1,A
 Inc R0
 mov A,@R0
-CJNE A,R1,next
-SJMP SKIP
-next:JNC SKIP
+SUBB A,R1
+JC SKIP
 mov A,@R0
 DEC R0
 mov @R0,A

@@ -1,0 +1,41 @@
+A51 MACRO ASSEMBLER  08                                                                   04/20/2019 20:33:45 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\08.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 08.asm SET(SMALL) DEBUG PRINT(.\Listings\08.lst) OBJECT(.\Objects\08.ob
+                      j) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;8.     WAP to count even number from a series of ten 8-bit numbers. (UnVerified)
+                       2     
+0000 7820              3     mov R0,#20H
+0002 7B0A              4     mov R3,#0AH
+0004 7A00              5     mov R2,#00H
+0006 C3                6     Clr C
+0007 E6                7     up: mov A,@R0
+0008 13                8     RRC A
+0009 5001              9     JNC down
+000B 0A               10     INC R2
+000C 08               11     down: INC R0
+000D DBF8             12     DJNZ R3,up
+000F EA               13     mov A,R2
+0010 F540             14     mov 40H,A
+                      15     End
+A51 MACRO ASSEMBLER  08                                                                   04/20/2019 20:33:45 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DOWN . . . . . . .  C ADDR   000CH   A   
+UP . . . . . . . .  C ADDR   0007H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
