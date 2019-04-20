@@ -17,6 +17,8 @@ MOVX @DPTR,A
 HERE: SJMP HERE
 end
 
+Check output at X:2500H
+
 2.	WAP to find smallest number from a data block of 10 bytes.
 
 ORG 0000H
@@ -35,35 +37,130 @@ MOVX @DPTR,A
 HERE: SJMP HERE
 end
 
+Check output at X:2500H
+
 3.	WAP to arrange series of ten 8-bit numbers in ascending order.
 
-
-
+mov R3,0AH
+Again:mov r4,0aH
+mov R0,#20H
+Clr C
+up:mov A,@R0
+mov R1,A
+Inc R0
+mov A,@R0
+CJNE A,R1,next
+SJMP SKIP
+next:JC SKIP
+mov A,@R0
+DEC R0
+mov @R0,A
+mov A,R1
+Inc R0
+Mov @R0,A
+SKIP:DJNZ R4,up
+DJNZ R3,Again
+End
 
 4.	WAP to arrange series of ten 8-bit numbers in descending order.
 
+mov R3,0AH
+Again:mov r4,0aH
+mov R0,#20H
+Clr C
+up:mov A,@R0
+mov R1,A
+Inc R0
+mov A,@R0
+CJNE A,R1,next
+SJMP SKIP
+next:JNC SKIP
+mov A,@R0
+DEC R0
+mov @R0,A
+mov A,R1
+Inc R0
+Mov @R0,A
+SKIP:DJNZ R4,up
+DJNZ R3,Again
+End
 
 5.	WAP to convert two digit BCD number into hex number.
 6.	WAP to count number of 1’s in a given byte.
+
+mov R0,#20H
+mov R3,#08H
+mov R2,#00H
+Clr C
+mov A,@R0
+Up:- RRC A
+JNC down 
+INC R2
+down:DJNZ R3,up
+mov A,R2
+mov 40H,A
+end
+
 7.	WAP to count number of 0’s in a given byte.
+
+mov R0,#20H
+mov R3,#08H
+mov R2,#00H
+Clr C
+mov A,@R0
+Up:- RRC A
+JC down 
+INC R2
+down:DJNZ R3,up
+mov A,R2
+mov 40H,A
+end
 
 8.	WAP to count even number from a series of ten 8-bit numbers.
 
+mov R0,#20H
+mov R3,#0AH
+mov R2,#00H
+Clr C
+up:- mov A,@R0
+RRC A
+JNC down
+INC R2
+down: INC R0
+DJNZ R3,up
+mov A,R2
+mov 40H,A
+End
+
 9.	WAP to count odd number from a series of ten 8-bit numbers.
+
+mov R0,#20H
+mov R3,#0AH
+mov R2,#00H
+Clr C
+up:- mov A,@R0
+RRC A
+JC down
+INC R2
+down: INC R0
+DJNZ R3,up
+mov A,R2
+mov 40H,A
+End
 
 10.	WAP to exchange data blocks of 10 bytes.
 11.	WAP to exchange data block of 10 bytes without exchange instruction.
-12.	WAP to transfer data blocks of 10 bytes from internal memory to external memory. (F)
-13.	WAP to transfer data blocks of 10 bytes from internal memory to internal memory. (F)
-14.	WAP to transfer data blocks of 10 bytes from external memory to external memory. (F)
+12.	WAP to transfer data blocks of 10 bytes from internal memory to external memory. (Techmax L-9)
+13.	WAP to transfer data blocks of 10 bytes from internal memory to internal memory. (File exp 1)
+14.	WAP to transfer data blocks of 10 bytes from external memory to external memory. (File exp 1)
 15.	WAP to find 2’s complement of 16-bit number.
 16.	WAP to multiply 16-bit no. into 8-bit number.
 17.	WAP to evaluate expression ‘x2 + x + 1’ where ‘x’ is an 8-bit number.
-18.	WAP to convert packed BCD into unpacked BCD number. (T)
-19.	WAP to convert unpacked BCD into packed BCD number. (T)
+18.	WAP to convert packed BCD into unpacked BCD number. (Techmax page L-1)
+19.	WAP to convert unpacked BCD into packed BCD number. (Techmax page 4-09)
 20.	WAP to add two 4-digit BCD numbers.
 21.	WAP to subtract 2-digit BCD numbers.
 22.	WAP to find sum of data block of 10-bytes.
-23.	WAP to perform 8-bit division. (T)
+23.	WAP to perform 8-bit division. (Techmax pg 4-31)
 24.	WAP to convert packed BCD into ASCII code. 
 25.	WAP to blink two LED’s alternately using ARM (LPC2148). (T)
