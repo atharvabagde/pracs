@@ -1,0 +1,52 @@
+A51 MACRO ASSEMBLER  04                                                                   04/20/2019 19:16:01 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+NO OBJECT MODULE REQUESTED
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 04.asm SET(SMALL) DEBUG PRINT(.\Listings\04.lst) OBJECT(.\Objects\04.ob
+                      j) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;4.     WAP to arrange series of ten 8-bit numbers in descending order. (UnVerified)
+                       2     
+0000 AB0A              3     mov R3,0AH
+0002 AC0A              4     Again:mov r4,0aH
+0004 7820              5     mov R0,#20H
+0006 C3                6     Clr C
+0007 E6                7     up:mov A,@R0
+0008 F9                8     mov R1,A
+0009 08                9     Inc R0
+000A E6               10     mov A,@R0
+000B                  11     CJNE A,R1,next
+*** ________________________________^
+*** ERROR #A22 IN 11 (04.asm, LINE 11): EXPRESSION TYPE DOES NOT MATCH INSTRUCTION
+000B 8008             12     SJMP SKIP
+000D 5006             13     next:JNC SKIP
+000F E6               14     mov A,@R0
+0010 18               15     DEC R0
+0011 F6               16     mov @R0,A
+0012 E9               17     mov A,R1
+0013 08               18     Inc R0
+0014 F6               19     Mov @R0,A
+0015 DCF0             20     SKIP:DJNZ R4,up
+0017 DBE9             21     DJNZ R3,Again
+                      22     End
+A51 MACRO ASSEMBLER  04                                                                   04/20/2019 19:16:01 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0002H   A   
+NEXT . . . . . . .  C ADDR   000DH   A   
+SKIP . . . . . . .  C ADDR   0015H   A   
+UP . . . . . . . .  C ADDR   0007H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 1 ERROR(S)

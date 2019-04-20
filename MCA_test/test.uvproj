@@ -375,6 +375,13 @@
       <Groups>
         <Group>
           <GroupName>Source Group 1</GroupName>
+          <Files>
+            <File>
+              <FileName>03.asm</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\03.asm</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>

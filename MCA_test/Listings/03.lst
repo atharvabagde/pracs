@@ -1,0 +1,48 @@
+A51 MACRO ASSEMBLER  03                                                                   04/20/2019 19:19:52 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\03.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 03.asm SET(SMALL) DEBUG PRINT(.\Listings\03.lst) OBJECT(.\Objects\03.ob
+                      j) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;3.     WAP to arrange series of ten 8-bit numbers in ascending order. (UnVerified)
+                       2     
+0000 AB0A              3     mov R3,0AH
+0002 AC0A              4     Again:mov r4,0aH
+0004 7820              5     mov R0,#20H
+0006 C3                6     Clr C
+0007 E6                7     up:mov A,@R0
+0008 F9                8     mov R1,A
+0009 08                9     Inc R0
+000A E6               10     mov A,@R0
+000B 99               11     SUBB A,R1
+000C 5006             12     JNC SKIP
+000E E6               13     mov A,@R0
+000F 18               14     DEC R0
+0010 F6               15     mov @R0,A
+0011 E9               16     mov A,R1
+0012 08               17     Inc R0
+0013 F6               18     Mov @R0,A
+0014 DCF1             19     SKIP:DJNZ R4,up
+0016 DBEA             20     DJNZ R3,Again
+                      21     End
+A51 MACRO ASSEMBLER  03                                                                   04/20/2019 19:19:52 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0002H   A   
+SKIP . . . . . . .  C ADDR   0014H   A   
+UP . . . . . . . .  C ADDR   0007H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
