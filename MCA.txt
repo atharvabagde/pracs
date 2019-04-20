@@ -1,5 +1,5 @@
 
-1.	WAP to find largest number from a data block of 10 bytes. (Verified)
+1. WAP to find largest number from a data block of 10 bytes. (Verified)
 
 ORG 0000H
 MOV DPTR,#2500H
@@ -17,9 +17,9 @@ MOVX @DPTR,A
 HERE: SJMP HERE
 end
 
-Check output at X:2500H
+OUTPUT: X:2500H
 
-2.	WAP to find smallest number from a data block of 10 bytes. (Verified)
+2. WAP to find smallest number from a data block of 10 bytes. (Verified)
 
 ORG 0000H
 MOV DPTR,#2500H
@@ -37,57 +37,85 @@ MOVX @DPTR,A
 HERE: SJMP HERE
 end
 
-Check output at X:2500H
+OUTPUT: X:2500H
 
-3.	WAP to arrange series of ten 8-bit numbers in ascending order. (UnVerified)
+3. WAP to arrange series of ten 8-bit numbers in ascending order. (Verified)
 
-mov R3,0AH
-Again:mov r4,0aH
-mov R0,#20H
-Clr C
-up:mov A,@R0
-mov R1,A
-Inc R0
-mov A,@R0
-SUBB A,R1
-JNC SKIP
-mov A,@R0
-DEC R0
-mov @R0,A
-mov A,R1
-Inc R0
-Mov @R0,A
-SKIP:DJNZ R4,up
-DJNZ R3,Again
-End
+org 00h
+mov r3,#0ah
+again: mov r4,#0ah
+mov r0,#20h
+clr c
+up: mov a,@r0
+mov r1,a
+inc r0
+mov a,@r0
+subb a,r1
+jnc skip
+mov a,@r0
+dec r0
+mov @r0,a
+mov a,r1
+inc r0
+mov @r0,a
+skip: djnz r4,up
+djnz r3,again
+stop: sjmp stop
+end
 
-Check Output at D:20H
+INPUT: d:20H
+OUTPUT: d:20H
 
-4.	WAP to arrange series of ten 8-bit numbers in descending order. (UnVerified)
+4. WAP to arrange series of ten 8-bit numbers in descending order. (Verified)
 
-mov R3,0AH
-Again:mov r4,0aH
-mov R0,#20H
-Clr C
-up:mov A,@R0
-mov R1,A
-Inc R0
-mov A,@R0
-SUBB A,R1
-JC SKIP
-mov A,@R0
-DEC R0
-mov @R0,A
-mov A,R1
-Inc R0
-Mov @R0,A
-SKIP:DJNZ R4,up
-DJNZ R3,Again
-End
+org 00h
+mov r3,#0ah
+again: mov r4,#0ah
+mov r0,#20h
+clr c
+up: mov a,@r0
+mov r1,a
+inc r0
+mov a,@r0
+subb a,r1
+jc skip
+mov a,@r0
+dec r0
+mov @r0,a
+mov a,r1
+inc r0
+mov @r0,a
+skip: djnz r4,up
+djnz r3,again
+stop: sjmp stop
+end
 
-5.	WAP to convert two digit BCD number into hex number. (UnVerified)
+INPUT: d:20H
+OUTPUT: d:20H
 
-6.	WAP to count number of 1’s in a given byte. (Verified)
+5. WAP to convert two digit BCD number into hex number. (Verified)
+
+mov r0,#30h
+mov r1,#00h
+mov a,@r0
+anl a,#0fh
+mov r1,a
+mov a,@r0
+anl a,#0f0h
+swap a
+mov b,a
+mov a,#0ah
+mul ab
+add a,r1
+inc r0
+mov @r0,a
+here: sjmp here
+end
+	
+Input- d:30h eg.99
+Output- d:31h eg.63
+
+6. WAP to count number of 1’s in a given byte. (Verified)
 
 mov R0,#20H
 mov R3,#08H
@@ -105,7 +133,7 @@ Input : D:20H
 Output : Sys register A
 Example : FF -> 8
 
-7.	WAP to count number of 0’s in a given byte. (Verified)
+7. WAP to count number of 0’s in a given byte. (Verified)
 
 mov R0,#20H
 mov R3,#08H
@@ -124,7 +152,7 @@ Input : D:20H
 Output : Sys register A
 Example : 0F -> 4
 
-8.	WAP to count even number from a series of ten 8-bit numbers. (Verified)
+8. WAP to count even number from a series of ten 8-bit numbers. (Verified)
 
 mov R0,#20H
 mov R3,#0AH
@@ -143,13 +171,13 @@ End
 Input : D:20H
 Output : D:40H
 
-9.	WAP to count odd number from a series of ten 8-bit numbers. (UnVerified)
+9. WAP to count odd number from a series of ten 8-bit numbers. (Verified)
 
 mov R0,#20H
 mov R3,#0AH
 mov R2,#00H
 Clr C
-up:- mov A,@R0
+up: mov A,@R0
 RRC A
 JC down
 INC R2
@@ -162,7 +190,7 @@ End
 Input : D:20H
 Output : D:40H
 
-10.	WAP to exchange data blocks of 10 bytes. (UnVerified)
+10. WAP to exchange data blocks of 10 bytes. (Verified)
 
 mov R0,#30H
 mov R1,#40H
@@ -170,26 +198,35 @@ mov R2 ,#0AH
 up: mov A,@R0
 XCH A,@R1
 mov @R0,A.
-Inc R0
-Inc R1
+inc R0
+inc R1
 DJNZ R2,up
 here: SJMP here
+end
 
-11.	WAP to exchange data block of 10 bytes without exchange instruction. (UnVerified)
+11. WAP to exchange data block of 10 bytes without exchange instruction. (UnVerified)
 12.	WAP to transfer data blocks of 10 bytes from internal memory to external memory. (Techmax L-9) (UnVerified)
 13.	WAP to transfer data blocks of 10 bytes from internal memory to internal memory. (File exp 1) (UnVerified)
 14.	WAP to transfer data blocks of 10 bytes from external memory to external memory. (File exp 1) (UnVerified)
 
-15.	WAP to find 2’s complement of 16-bit number. (UnVerified)
+15.	WAP to find 2’s complement of 16-bit number. (Verified)
 
 mov R0,#30H
+mov R1,#31H
 mov A,@R0
 CPL A
 ADD A,#01H
-mov 32H,A
-CLR A 
+mov @R0,A
+mov A,@R1
+CPL A 
 ADDC A,#00H
-mov 33H,A
+mov @R1,A
+end
+ 
+INPUT : d:30H
+OUTPUT : d:30H
+EXAMPLE : Enter d:30H = FF and d:31H = FF
+		  		d:30H = 01 and d:31H = 00
 
 16.	WAP to multiply 16-bit no. into 8-bit number. (UnVerified)
 17.	WAP to evaluate expression ‘x2 + x + 1’ where ‘x’ is an 8-bit number. (UnVerified)
@@ -225,7 +262,29 @@ OUTPUT : A register
 
 20.	WAP to add two 4-digit BCD numbers. (UnVerified)
 21.	WAP to subtract 2-digit BCD numbers. (UnVerified)
-22.	WAP to find sum of data block of 10-bytes. (UnVerified)
+22.	WAP to find sum of data block of 10-bytes. (Verified)
+
+mov a,#00h
+mov r0,#30h
+mov r2,#00h
+mov r3,#0ah
+up: add a,@r0
+jnc down
+inc r2
+down: inc r0
+djnz r3,up
+mov r1,#3ah
+mov @r1,a
+inc r1
+mov a,r2
+mov @r1,a
+here: sjmp here
+end
+	
+	
+INPUT: d:30h
+OUTPUT: sum: d:3ah , carry: d: 3bh
+
 23.	WAP to perform 8-bit division. (Techmax pg 4-31) (Verified)
 
 MOV DPTR,#3000 H
@@ -248,5 +307,24 @@ OUTPUT : X:3020-quotient X:3021-remainder
 Example : 000F / 08 
 		  Q=01, R=07
 
-24.	WAP to convert packed BCD into ASCII code. (UnVerified)
-25.	WAP to blink two LED’s alternately using ARM (LPC2148). (T) (UnVerified)
+24.	WAP to convert packed BCD into ASCII code. (Verified)
+
+mov r0,#20h
+mov a,r0
+anl a,#0f0h
+swap a
+add a,#30h
+mov r1,a
+mov a,r0
+anl a,#0fh
+add a,#30h
+mov r2,a
+end
+
+INPUT : d:20h
+OUTPUT : d:20h
+EXAMPLE : 54 --> 
+
+25.	WAP to blink two LED’s alternately using ARM (LPC2148). (T) (UnVerified) (Cancelled)
+
+Remaining - 11,12,13,14,16,17,20,21,24,25

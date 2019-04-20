@@ -1,4 +1,4 @@
-;7.	WAP to count number of 0’s in a given byte. (UnVerified)
+;7. WAP to count number of 0’s in a given byte. (Verified)
 
 mov R0,#20H
 mov R3,#08H

@@ -1,4 +1,4 @@
-;8.	WAP to count even number from a series of ten 8-bit numbers. (UnVerified)
+;8. WAP to count even number from a series of ten 8-bit numbers. (Verified)
 
 mov R0,#20H
 mov R3,#0AH

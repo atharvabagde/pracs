@@ -1,21 +1,22 @@
-;4.	WAP to arrange series of ten 8-bit numbers in descending order. (UnVerified)
+;4. WAP to arrange series of ten 8-bit numbers in descending order. (Verified)
 
-mov R3,0AH
-Again:mov r4,0aH
-mov R0,#20H
-Clr C
-up:mov A,@R0
-mov R1,A
-Inc R0
-mov A,@R0
-SUBB A,R1
-JC SKIP
-mov A,@R0
-DEC R0
-mov @R0,A
-mov A,R1
-Inc R0
-Mov @R0,A
-SKIP:DJNZ R4,up
-DJNZ R3,Again
-End
+org 00h
+mov r3,#0ah
+again: mov r4,#0ah
+mov r0,#20h
+clr c
+up: mov a,@r0
+mov r1,a
+inc r0
+mov a,@r0
+subb a,r1
+jc skip
+mov a,@r0
+dec r0
+mov @r0,a
+mov a,r1
+inc r0
+mov @r0,a
+skip: djnz r4,up
+djnz r3,again
+stop: sjmp stop

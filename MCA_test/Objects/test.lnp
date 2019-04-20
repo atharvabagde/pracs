@@ -1,3 +1,3 @@
-".\Objects\19.obj" 
+".\Objects\24.obj" 
 TO ".\Objects\test" 
 PRINT(".\Listings\test.m51")

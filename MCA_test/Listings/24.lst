@@ -1,0 +1,37 @@
+A51 MACRO ASSEMBLER  24                                                                   04/20/2019 23:25:26 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\24.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 24.asm SET(SMALL) DEBUG PRINT(.\Listings\24.lst) OBJECT(.\Objects\24.ob
+                      j) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;24.    WAP to convert packed BCD into ASCII code. (UnVerified)
+                       2     
+0000 7820              3     mov r0,#20h
+0002 E8                4     mov a,r0
+0003 54F0              5     anl a,#0f0h
+0005 C4                6     swap a
+0006 2430              7     add a,#30h
+0008 F9                8     mov r1,a
+0009 E8                9     mov a,r0
+000A 540F             10     anl a,#0fh
+000C 2430             11     add a,#30h
+000E FA               12     mov r2,a
+                      13     end
+A51 MACRO ASSEMBLER  24                                                                   04/20/2019 23:25:26 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

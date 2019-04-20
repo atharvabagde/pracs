@@ -1,5 +1,5 @@
-;18.	WAP to convert packed BCD into unpacked BCD number. (Techmax page L-1) 
-	
+;18.	WAP to convert packed BCD into unpacked BCD number. (Techmax page L-1) (Verified)
+
 MOV A,#92H
 MOV B,A
 ANL A,#0F0H

@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  03                                                                   04/20/2019 20:17:41 PAGE     1
+A51 MACRO ASSEMBLER  03                                                                   04/20/2019 23:13:08 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
@@ -8,28 +8,30 @@ ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 03.asm SET(SMALL) DEBUG PRINT(.
 
 LOC  OBJ            LINE     SOURCE
 
-                       1     ;3.     WAP to arrange series of ten 8-bit numbers in ascending order. (UnVerified)
+                       1     ;3. WAP to arrange series of ten 8-bit numbers in ascending order. (Verified)
                        2     
-0000 AB0A              3     mov R3,0AH
-0002 AC0A              4     Again:mov r4,0aH
-0004 7820              5     mov R0,#20H
-0006 C3                6     Clr C
-0007 E6                7     up:mov A,@R0
-0008 F9                8     mov R1,A
-0009 08                9     Inc R0
-000A E6               10     mov A,@R0
-000B 99               11     SUBB A,R1
-000C 5006             12     JNC SKIP
-000E E6               13     mov A,@R0
-000F 18               14     DEC R0
-0010 F6               15     mov @R0,A
-0011 E9               16     mov A,R1
-0012 08               17     Inc R0
-0013 F6               18     Mov @R0,A
-0014 DCF1             19     SKIP:DJNZ R4,up
-0016 DBEA             20     DJNZ R3,Again
-                      21     End
-A51 MACRO ASSEMBLER  03                                                                   04/20/2019 20:17:41 PAGE     2
+0000                   3     org 00h
+0000 7B0A              4     mov r3,#0ah
+0002 7C0A              5     again: mov r4,#0ah
+0004 7820              6     mov r0,#20h
+0006 C3                7     clr c
+0007 E6                8     up: mov a,@r0
+0008 F9                9     mov r1,a
+0009 08               10     inc r0
+000A E6               11     mov a,@r0
+000B 99               12     subb a,r1
+000C 5006             13     jnc skip
+000E E6               14     mov a,@r0
+000F 18               15     dec r0
+0010 F6               16     mov @r0,a
+0011 E9               17     mov a,r1
+0012 08               18     inc r0
+0013 F6               19     mov @r0,a
+0014 DCF1             20     skip: djnz r4,up
+0016 DBEA             21     djnz r3,again
+0018 80FE             22     stop: sjmp stop
+                      23     end
+A51 MACRO ASSEMBLER  03                                                                   04/20/2019 23:13:08 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------
@@ -39,6 +41,7 @@ N A M E             T Y P E  V A L U E   ATTRIBUTES
 
 AGAIN. . . . . . .  C ADDR   0002H   A   
 SKIP . . . . . . .  C ADDR   0014H   A   
+STOP . . . . . . .  C ADDR   0018H   A   
 UP . . . . . . . .  C ADDR   0007H   A   
 
 

@@ -1,10 +1,10 @@
-;9.	WAP to count odd number from a series of ten 8-bit numbers. (UnVerified)
+;9. WAP to count odd number from a series of ten 8-bit numbers. (Verified)
 
 mov R0,#20H
 mov R3,#0AH
 mov R2,#00H
 Clr C
-up:- mov A,@R0
+up: mov A,@R0
 RRC A
 JC down
 INC R2

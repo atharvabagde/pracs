@@ -1,0 +1,37 @@
+A51 MACRO ASSEMBLER  15                                                                   04/20/2019 23:16:57 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\15.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 15.asm SET(SMALL) DEBUG PRINT(.\Listings\15.lst) OBJECT(.\Objects\15.ob
+                      j) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;15.    WAP to find 2’s complement of 16-bit number. (Verified)
+                       2     
+0000 7830              3     mov R0,#30H
+0002 7931              4     mov R1,#31H
+0004 E6                5     mov A,@R0
+0005 F4                6     CPL A
+0006 2401              7     ADD A,#01H
+0008 F6                8     mov @R0,A
+0009 E7                9     mov A,@R1
+000A F4               10     CPL A 
+000B 3400             11     ADDC A,#00H
+000D F7               12     mov @R1,A
+                      13     end
+A51 MACRO ASSEMBLER  15                                                                   04/20/2019 23:16:57 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
