@@ -1,0 +1,69 @@
+
+1.	WAP to find largest number from a data block of 10 bytes.
+
+ORG 0000H
+MOV DPTR,#2500H
+MOV R2,#0AH
+MOV R1,#00H
+UP: MOVX A,@DPTR
+CJNE A, 01,NEXT
+NEXT: JC DOWN
+MOV R1,A
+DOWN: INC DPTR
+DJNZ R2,UP
+MOV DPTR,#250AH
+MOV A,R1
+MOVX @DPTR,A
+HERE: SJMP HERE
+end
+
+2.	WAP to find smallest number from a data block of 10 bytes.
+
+ORG 0000H
+MOV DPTR,#2500H
+MOV R2,#0AH
+MOV R1,#0FFH
+UP: MOVX A,@DPTR
+CJNE A, 01,NEXT
+NEXT: JNC DOWN
+MOV R1,A
+DOWN: INC DPTR
+DJNZ R2,UP
+MOV DPTR,#250AH
+MOV A,R1
+MOVX @DPTR,A
+HERE: SJMP HERE
+end
+
+3.	WAP to arrange series of ten 8-bit numbers in ascending order.
+
+
+
+
+4.	WAP to arrange series of ten 8-bit numbers in descending order.
+
+
+5.	WAP to convert two digit BCD number into hex number.
+6.	WAP to count number of 1’s in a given byte.
+7.	WAP to count number of 0’s in a given byte.
+
+8.	WAP to count even number from a series of ten 8-bit numbers.
+
+9.	WAP to count odd number from a series of ten 8-bit numbers.
+
+10.	WAP to exchange data blocks of 10 bytes.
+11.	WAP to exchange data block of 10 bytes without exchange instruction.
+12.	WAP to transfer data blocks of 10 bytes from internal memory to external memory. (F)
+13.	WAP to transfer data blocks of 10 bytes from internal memory to internal memory. (F)
+14.	WAP to transfer data blocks of 10 bytes from external memory to external memory. (F)
+15.	WAP to find 2’s complement of 16-bit number.
+16.	WAP to multiply 16-bit no. into 8-bit number.
+17.	WAP to evaluate expression ‘x2 + x + 1’ where ‘x’ is an 8-bit number.
+18.	WAP to convert packed BCD into unpacked BCD number. (T)
+19.	WAP to convert unpacked BCD into packed BCD number. (T)
+20.	WAP to add two 4-digit BCD numbers.
+21.	WAP to subtract 2-digit BCD numbers.
+22.	WAP to find sum of data block of 10-bytes.
+23.	WAP to perform 8-bit division. (T)
+24.	WAP to convert packed BCD into ASCII code. 
+25.	WAP to blink two LED’s alternately using ARM (LPC2148). (T)
