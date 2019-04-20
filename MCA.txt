@@ -204,10 +204,67 @@ DJNZ R2,up
 here: SJMP here
 end
 
-11. WAP to exchange data block of 10 bytes without exchange instruction. (UnVerified)
-12.	WAP to transfer data blocks of 10 bytes from internal memory to external memory. (Techmax L-9) (UnVerified)
-13.	WAP to transfer data blocks of 10 bytes from internal memory to internal memory. (File exp 1) (UnVerified)
-14.	WAP to transfer data blocks of 10 bytes from external memory to external memory. (File exp 1) (UnVerified)
+11. WAP to exchange data block of 10 bytes without exchange instruction. (Verified)
+
+mov r0,#20h
+mov r1,#30h
+mov r3,#0ah
+//r2=temp
+up: mov a,@r0
+mov r2,a
+mov a,@r1
+mov @r0,a
+mov a,r2
+mov @r1,a
+inc r0
+inc r1
+djnz r3,up
+here: sjmp here
+end
+	
+;12.	WAP to transfer data blocks of 10 bytes from internal memory to external memory. (Techmax L-9) (Verified)
+
+mov dptr,#2500h
+mov r0,#30h
+mov r3,#0ah
+up: mov a,@r0
+movx @dptr,a
+inc dptr
+inc r0
+djnz r3,up
+here: sjmp here
+end
+	
+	//internal input- d:30h
+	//external output- x:2500h
+
+13.	WAP to transfer data blocks of 10 bytes from internal memory to internal memory. (File exp 1) (Verified)
+
+mov r0,#20h
+mov r1,#30h
+mov r3,#0ah
+up: mov a,@r0
+mov @r1,a
+inc r0
+inc r1
+djnz r3,up
+here: sjmp here
+end
+
+14.	WAP to transfer data blocks of 10 bytes from external memory to external memory. (File exp 1) (Verified)
+
+mov r0,#24h
+mov r1,#25h
+mov dpl,#00h
+mov r3,#0ah
+up: mov dph,r0
+movx a,@dptr
+mov dph,r1
+movx @dptr,a
+inc dpl
+djnz r3,up
+here: sjmp here
+end
 
 15.	WAP to find 2’s complement of 16-bit number. (Verified)
 
@@ -228,8 +285,66 @@ OUTPUT : d:30H
 EXAMPLE : Enter d:30H = FF and d:31H = FF
 		  		d:30H = 01 and d:31H = 00
 
-16.	WAP to multiply 16-bit no. into 8-bit number. (UnVerified)
-17.	WAP to evaluate expression ‘x2 + x + 1’ where ‘x’ is an 8-bit number. (UnVerified)
+16.	WAP to multiply 16-bit no. into 8-bit number. (Verified)
+
+mov r0,#20h  // lb of 16b in 20
+mov a,@r0
+mov r0,#22h  //8b in 22
+mov b,@r0
+mul ab 
+mov 23h,a  //lb1 in 23 
+mov r1,b  //hb1 in r1
+mov b,@r0  //hb of 16b in 21
+mov r0,#21h
+mov a,@r0
+mul ab
+add a,r1  //hb1+lb2
+mov r1,#24h //hb1+lb2 in 24
+mov @r1,a
+mov a,b
+addc a,#00h
+mov r0,#25h
+mov @r0,a  //hb2+carry in 25
+here: sjmp here
+end
+
+//input d:20h  lb of 16b no
+//input d:21h  hb of 16b no
+//input d:22h  8b no
+//output d:23h lb
+//output d:24h mb
+//output d:25h hb
+
+
+17.	WAP to evaluate expression ‘x2 + x + 1’ where ‘x’ is an 8-bit number. (Verified)
+
+org 00h
+mov r0,#10h
+mov r1,#20h
+mov a,@r0
+mov b,a
+mul ab
+add a,@r0
+mov @r1,a
+mov a,b
+addc a,#00h
+mov b,a
+mov a,@r1
+add a,#1h
+inc r0
+mov @r0,a
+mov a,b
+addc a,#00h
+inc r0
+mov @r0,a
+stop: sjmp stop
+end
+
+INPUT:	D:10 -> 10
+OUTPUT:	D:11 -> LB of output
+		D:12 -> HB of output
+
+		10^2 + 10 +1 = 111(hex)
 
 18.	WAP to convert packed BCD into unpacked BCD number. (Techmax page L-1) (Verified)
 
@@ -307,24 +422,27 @@ OUTPUT : X:3020-quotient X:3021-remainder
 Example : 000F / 08 
 		  Q=01, R=07
 
-24.	WAP to convert packed BCD into ASCII code. (Verified)
+24.	WAP to convert packed BCD into ASCII code. (UnVerified)
 
+org 00h
 mov r0,#20h
-mov a,r0
+mov a,@r0
 anl a,#0f0h
 swap a
 add a,#30h
 mov r1,a
-mov a,r0
+mov a,@r0
 anl a,#0fh
 add a,#30h
 mov r2,a
+stop: sjmp stop
 end
 
 INPUT : d:20h
 OUTPUT : d:20h
-EXAMPLE : 54 --> 
+EXAMPLE : 57 --> ASCII(5)=HEX(53)=35
+				 ASCII(7)=HEX(55)=37
 
 25.	WAP to blink two LED’s alternately using ARM (LPC2148). (T) (UnVerified) (Cancelled)
 
-Remaining - 11,12,13,14,16,17,20,21,24,25
+Remaining - 20,21

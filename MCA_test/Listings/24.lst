@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  24                                                                   04/20/2019 23:25:26 PAGE     1
+A51 MACRO ASSEMBLER  24                                                                   04/21/2019 00:15:05 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
@@ -8,20 +8,22 @@ ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 24.asm SET(SMALL) DEBUG PRINT(.
 
 LOC  OBJ            LINE     SOURCE
 
-                       1     ;24.    WAP to convert packed BCD into ASCII code. (UnVerified)
+                       1     ;24.    WAP to convert packed BCD into ASCII code. (Verified)
                        2     
-0000 7820              3     mov r0,#20h
-0002 E8                4     mov a,r0
-0003 54F0              5     anl a,#0f0h
-0005 C4                6     swap a
-0006 2430              7     add a,#30h
-0008 F9                8     mov r1,a
-0009 E8                9     mov a,r0
-000A 540F             10     anl a,#0fh
-000C 2430             11     add a,#30h
-000E FA               12     mov r2,a
-                      13     end
-A51 MACRO ASSEMBLER  24                                                                   04/20/2019 23:25:26 PAGE     2
+0000                   3     org 00h
+0000 7820              4     mov r0,#20h
+0002 E6                5     mov a,@r0
+0003 54F0              6     anl a,#0f0h
+0005 C4                7     swap a
+0006 2430              8     add a,#30h
+0008 F9                9     mov r1,a
+0009 E6               10     mov a,@r0
+000A 540F             11     anl a,#0fh
+000C 2430             12     add a,#30h
+000E FA               13     mov r2,a
+000F 80FE             14     stop: sjmp stop
+                      15     end
+A51 MACRO ASSEMBLER  24                                                                   04/21/2019 00:15:05 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------
@@ -29,6 +31,7 @@ SYMBOL TABLE LISTING
 
 N A M E             T Y P E  V A L U E   ATTRIBUTES
 
+STOP . . . . . . .  C ADDR   000FH   A   
 
 
 REGISTER BANK(S) USED: 0 

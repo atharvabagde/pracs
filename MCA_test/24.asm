@@ -1,13 +1,15 @@
 ;24.	WAP to convert packed BCD into ASCII code. (Verified)
 
+org 00h
 mov r0,#20h
-mov a,r0
+mov a,@r0
 anl a,#0f0h
 swap a
 add a,#30h
 mov r1,a
-mov a,r0
+mov a,@r0
 anl a,#0fh
 add a,#30h
 mov r2,a
+stop: sjmp stop
 end
