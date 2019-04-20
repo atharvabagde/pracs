@@ -1,0 +1,41 @@
+A51 MACRO ASSEMBLER  19                                                                   04/20/2019 20:54:01 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\19.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 19.asm SET(SMALL) DEBUG PRINT(.\Listings\19.lst) OBJECT(.\Objects\19.ob
+                      j) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;23.    WAP to perform 8-bit division. (Techmax pg 4-31) (UnVerified)
+                       2     
+0000 903000            3     MOV DPTR,#3000H
+0003 E0                4     MOVX A,@DPTR
+0004 F8                5     MOV R0,A
+0005 A3                6     INC DPTR
+0006 E0                7     MOVX A,@DPTR
+0007 F5F0              8     MOV B,A
+0009 E8                9     MOV A, R0
+000A 84               10     DIV AB
+000B 903020           11     MOV DPTR,#3020H
+000E F0               12     MOVX @DPTR,A
+000F A3               13     INC DPTR
+0010 E5F0             14     MOV A,B
+0012 F0               15     MOVX @DPTR,A
+                      16     END 
+A51 MACRO ASSEMBLER  19                                                                   04/20/2019 20:54:01 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

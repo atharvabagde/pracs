@@ -163,28 +163,53 @@ Input : D:20H
 Output : D:40H
 
 10.	WAP to exchange data blocks of 10 bytes. (UnVerified)
+
+mov R0,#30H
+mov R1,#40H
+mov R2 ,#0AH
+up: mov A,@R0
+XCH A,@R1
+mov @R0,A.
+Inc R0
+Inc R1
+DJNZ R2,up
+here: SJMP here
+
 11.	WAP to exchange data block of 10 bytes without exchange instruction. (UnVerified)
 12.	WAP to transfer data blocks of 10 bytes from internal memory to external memory. (Techmax L-9) (UnVerified)
 13.	WAP to transfer data blocks of 10 bytes from internal memory to internal memory. (File exp 1) (UnVerified)
 14.	WAP to transfer data blocks of 10 bytes from external memory to external memory. (File exp 1) (UnVerified)
+
 15.	WAP to find 2’s complement of 16-bit number. (UnVerified)
+
+mov R0,#30H
+mov A,@R0
+CPL A
+ADD A,#01H
+mov 32H,A
+CLR A 
+ADDC A,#00H
+mov 33H,A
+
 16.	WAP to multiply 16-bit no. into 8-bit number. (UnVerified)
 17.	WAP to evaluate expression ‘x2 + x + 1’ where ‘x’ is an 8-bit number. (UnVerified)
 
-18.	WAP to convert packed BCD into unpacked BCD number. (Techmax page L-1) (UnVerified)
+18.	WAP to convert packed BCD into unpacked BCD number. (Techmax page L-1) (Verified)
 
-MOV A,#92 H
+MOV A,#92H
 MOV B,A
-ANL A,0F0 H
+ANL A,#0F0H
 SWAP A
 MOV R1,A
 MOV A,B
-ANL A ,#0F H
+ANL A ,#0FH
 MOV R0,A
 END
 
+No input
+OUTPUT : R0 Register
 
-19.	WAP to convert unpacked BCD into packed BCD number. (Techmax page 4-09) (UnVerified)
+19.	WAP to convert unpacked BCD into packed BCD number. (Techmax page 4-09) (Verified)
 
 MOV A,#09 H
 MOV B, #02 H
@@ -195,10 +220,13 @@ RL  A
 ADD A,B
 END
 
+No input
+OUTPUT : A register
+
 20.	WAP to add two 4-digit BCD numbers. (UnVerified)
 21.	WAP to subtract 2-digit BCD numbers. (UnVerified)
 22.	WAP to find sum of data block of 10-bytes. (UnVerified)
-23.	WAP to perform 8-bit division. (Techmax pg 4-31) (UnVerified)
+23.	WAP to perform 8-bit division. (Techmax pg 4-31) (Verified)
 
 MOV DPTR,#3000 H
 MOVX A,@DPTR
@@ -214,6 +242,11 @@ INC DPTR
 MOV A,B
 MOVX @DPTR,A
 END 
+
+INPUT : X:3000H-dividend X:3001-divisor
+OUTPUT : X:3020-quotient X:3021-remainder
+Example : 000F / 08 
+		  Q=01, R=07
 
 24.	WAP to convert packed BCD into ASCII code. (UnVerified)
 25.	WAP to blink two LED’s alternately using ARM (LPC2148). (T) (UnVerified)
