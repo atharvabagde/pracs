@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  05                                                                   04/21/2019 10:32:51 PAGE     1
+A51 MACRO ASSEMBLER  05                                                                   04/21/2019 18:37:00 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
@@ -22,11 +22,10 @@ LOC  OBJ            LINE     SOURCE
 000E 740A             12     mov a,#0ah
 0010 A4               13     mul ab
 0011 29               14     add a,r1
-0012 08               15     inc r0
-0013 F6               16     mov @r0,a
-0014 80FE             17     here: sjmp here
-                      18     end
-A51 MACRO ASSEMBLER  05                                                                   04/21/2019 10:32:51 PAGE     2
+0012 F6               15     mov @r0,a
+0013 80FE             16     here: sjmp here
+                      17     end
+A51 MACRO ASSEMBLER  05                                                                   04/21/2019 18:37:00 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------
@@ -35,7 +34,7 @@ SYMBOL TABLE LISTING
 N A M E             T Y P E  V A L U E   ATTRIBUTES
 
 B. . . . . . . . .  D ADDR   00F0H   A   
-HERE . . . . . . .  C ADDR   0014H   A   
+HERE . . . . . . .  C ADDR   0013H   A   
 
 
 REGISTER BANK(S) USED: 0 

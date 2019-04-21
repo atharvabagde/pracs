@@ -6,7 +6,7 @@ mov R2,#00H
 Clr C
 up: mov A,@R0
 RRC A
-JC down
+JNC down
 INC R2
 down: INC R0
 DJNZ R3,up

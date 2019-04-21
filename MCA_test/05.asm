@@ -12,7 +12,6 @@ mov b,a
 mov a,#0ah
 mul ab
 add a,r1
-inc r0
 mov @r0,a
 here: sjmp here
 end

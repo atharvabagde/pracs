@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  03                                                                   04/20/2019 23:13:08 PAGE     1
+A51 MACRO ASSEMBLER  03                                                                   04/21/2019 18:03:14 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
@@ -10,7 +10,7 @@ LOC  OBJ            LINE     SOURCE
 
                        1     ;3. WAP to arrange series of ten 8-bit numbers in ascending order. (Verified)
                        2     
-0000                   3     org 00h
+0000                   3     org 0000h
 0000 7B0A              4     mov r3,#0ah
 0002 7C0A              5     again: mov r4,#0ah
 0004 7820              6     mov r0,#20h
@@ -24,14 +24,14 @@ LOC  OBJ            LINE     SOURCE
 000E E6               14     mov a,@r0
 000F 18               15     dec r0
 0010 F6               16     mov @r0,a
-0011 E9               17     mov a,r1
-0012 08               18     inc r0
+0011 08               17     inc r0
+0012 E9               18     mov a,r1
 0013 F6               19     mov @r0,a
 0014 DCF1             20     skip: djnz r4,up
 0016 DBEA             21     djnz r3,again
-0018 80FE             22     stop: sjmp stop
+0018 80FE             22     here: sjmp here
                       23     end
-A51 MACRO ASSEMBLER  03                                                                   04/20/2019 23:13:08 PAGE     2
+A51 MACRO ASSEMBLER  03                                                                   04/21/2019 18:03:14 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------
@@ -40,8 +40,8 @@ SYMBOL TABLE LISTING
 N A M E             T Y P E  V A L U E   ATTRIBUTES
 
 AGAIN. . . . . . .  C ADDR   0002H   A   
+HERE . . . . . . .  C ADDR   0018H   A   
 SKIP . . . . . . .  C ADDR   0014H   A   
-STOP . . . . . . .  C ADDR   0018H   A   
 UP . . . . . . . .  C ADDR   0007H   A   
 
 

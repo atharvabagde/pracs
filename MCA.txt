@@ -122,7 +122,7 @@ mov R3,#08H
 mov R2,#00H
 Clr C
 mov A,@R0
-Up:- RRC A
+Up: RRC A
 JNC down 
 INC R2
 down:DJNZ R3,up
@@ -160,7 +160,7 @@ mov R2,#00H
 Clr C
 up: mov A,@R0
 RRC A
-JNC down
+JC down
 INC R2
 down: INC R0
 DJNZ R3,up
@@ -179,7 +179,7 @@ mov R2,#00H
 Clr C
 up: mov A,@R0
 RRC A
-JC down
+JNC down
 INC R2
 down: INC R0
 DJNZ R3,up
@@ -189,6 +189,7 @@ End
 
 Input : D:20H
 Output : D:40H
+
 
 10. WAP to exchange data blocks of 10 bytes. (Verified)
 
@@ -491,6 +492,10 @@ EXAMPLE : 57 --> ASCII(5)=HEX(53)=35
 
 
 -----------------------------------------------------------------------------------------------------------------------------
+
+https://www.electronicwings.com/arm7/getting-started-with-arm-lpc2148-using-keil-uvision-ide
+Follow the steps
+(Legacy support for Arm7, Arm9 & Cortex-R devices)
 
 
 26. ARM programs from File (Unverified)

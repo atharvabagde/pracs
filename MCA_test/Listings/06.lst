@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  06                                                                   04/20/2019 20:24:24 PAGE     1
+A51 MACRO ASSEMBLER  06                                                                   04/21/2019 18:41:28 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
@@ -8,7 +8,7 @@ ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 06.asm SET(SMALL) DEBUG PRINT(.
 
 LOC  OBJ            LINE     SOURCE
 
-                       1     ;6.     WAP to count number of 1’s in a given byte. (UnVerified)
+                       1     ;6. WAP to count number of 1’s in a given byte. (Verified)
                        2     
 0000 7820              3     mov R0,#20H
 0002 7B08              4     mov R3,#08H
@@ -21,7 +21,7 @@ LOC  OBJ            LINE     SOURCE
 000C DBFA             11     down:DJNZ R3,up
 000E EA               12     mov A,R2
                       13     end
-A51 MACRO ASSEMBLER  06                                                                   04/20/2019 20:24:24 PAGE     2
+A51 MACRO ASSEMBLER  06                                                                   04/21/2019 18:41:28 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------
