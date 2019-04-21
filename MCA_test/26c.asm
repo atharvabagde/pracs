@@ -1,4 +1,4 @@
-;c. Smallest Number using ARM-7
+;26c. Smallest Number using ARM-7
 
    area smallest,code,readonly
 entry
