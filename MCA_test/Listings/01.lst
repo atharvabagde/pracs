@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  01                                                                   04/21/2019 10:34:31 PAGE     1
+A51 MACRO ASSEMBLER  01                                                                   04/21/2019 10:39:21 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
@@ -25,7 +25,7 @@ LOC  OBJ            LINE     SOURCE
 0015 F0               15     MOVX @DPTR,A
 0016 80FE             16     HERE: SJMP HERE
                       17     end
-A51 MACRO ASSEMBLER  01                                                                   04/21/2019 10:34:31 PAGE     2
+A51 MACRO ASSEMBLER  01                                                                   04/21/2019 10:39:21 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------

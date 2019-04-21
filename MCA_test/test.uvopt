@@ -239,8 +239,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\05.asm</PathWithFileName>
-      <FilenameWithoutPath>05.asm</FilenameWithoutPath>
+      <PathWithFileName>.\03.asm</PathWithFileName>
+      <FilenameWithoutPath>03.asm</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -263,8 +263,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\03.asm</PathWithFileName>
-      <FilenameWithoutPath>03.asm</FilenameWithoutPath>
+      <PathWithFileName>.\05.asm</PathWithFileName>
+      <FilenameWithoutPath>05.asm</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
