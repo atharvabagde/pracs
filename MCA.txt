@@ -354,6 +354,23 @@ OUTPUT:	D:11 -> LB of output
 
 		10^2 + 10 +1 = 111(hex)
 
+
+Different Solution ->
+
+mov r0,#20h   // store x in 20h
+mov a,@r0
+mov b,@r0
+mul ab
+add a,@r0
+add a,#1
+mov 21h,a
+mov a,b
+addc a,#00h
+mov 22h,a
+here: sjmp here
+end
+
+
 18.	WAP to convert packed BCD into unpacked BCD number. (Techmax page L-1) (Verified)
 
 MOV A,#92H
@@ -362,7 +379,7 @@ ANL A,#0F0H
 SWAP A
 MOV R1,A
 MOV A,B
-ANL A ,#0FH
+ANL A,#0FH
 MOV R0,A
 END
 
