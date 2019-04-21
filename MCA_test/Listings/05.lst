@@ -1,0 +1,44 @@
+A51 MACRO ASSEMBLER  05                                                                   04/21/2019 10:32:51 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\05.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 05.asm SET(SMALL) DEBUG PRINT(.\Listings\05.lst) OBJECT(.\Objects\05.ob
+                      j) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;5. WAP to convert two digit BCD number into hex number. (Verified)
+                       2     
+0000 7830              3     mov r0,#30h
+0002 7900              4     mov r1,#00h
+0004 E6                5     mov a,@r0
+0005 540F              6     anl a,#0fh
+0007 F9                7     mov r1,a
+0008 E6                8     mov a,@r0
+0009 54F0              9     anl a,#0f0h
+000B C4               10     swap a
+000C F5F0             11     mov b,a
+000E 740A             12     mov a,#0ah
+0010 A4               13     mul ab
+0011 29               14     add a,r1
+0012 08               15     inc r0
+0013 F6               16     mov @r0,a
+0014 80FE             17     here: sjmp here
+                      18     end
+A51 MACRO ASSEMBLER  05                                                                   04/21/2019 10:32:51 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+HERE . . . . . . .  C ADDR   0014H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

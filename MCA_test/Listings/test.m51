@@ -1,15 +1,15 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/21/2019  00:15:05  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/21/2019  10:34:42  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
-C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\24.obj TO .\Objects\test PRINT (.\Listings\test.m51)
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\02.obj TO .\Objects\test PRINT (.\Listings\test.m51)
 
 
 INPUT MODULES INCLUDED:
-  .\Objects\24.obj (24)
+  .\Objects\02.obj (02)
 
 
-LINK MAP OF MODULE:  .\Objects\test (24)
+LINK MAP OF MODULE:  .\Objects\test (02)
 
 
             TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
@@ -19,33 +19,38 @@ LINK MAP OF MODULE:  .\Objects\test (24)
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
-            CODE    0000H     0011H     ABSOLUTE     
+            CODE    0000H     0018H     ABSOLUTE     
 
 
 
-SYMBOL TABLE OF MODULE:  .\Objects\test (24)
+SYMBOL TABLE OF MODULE:  .\Objects\test (02)
 
   VALUE           TYPE          NAME
   ----------------------------------
 
-  -------         MODULE        24
-  C:000FH         SYMBOL        STOP
+  -------         MODULE        02
+  C:000EH         SYMBOL        DOWN
+  C:0016H         SYMBOL        HERE
+  C:000BH         SYMBOL        NEXT
+  C:0007H         SYMBOL        UP
   C:0000H         LINE#         4
-  C:0002H         LINE#         5
-  C:0003H         LINE#         6
-  C:0005H         LINE#         7
-  C:0006H         LINE#         8
-  C:0008H         LINE#         9
-  C:0009H         LINE#         10
-  C:000AH         LINE#         11
-  C:000CH         LINE#         12
-  C:000EH         LINE#         13
-  C:000FH         LINE#         14
-  -------         ENDMOD        24
+  C:0003H         LINE#         5
+  C:0005H         LINE#         6
+  C:0007H         LINE#         7
+  C:0008H         LINE#         8
+  C:000BH         LINE#         9
+  C:000DH         LINE#         10
+  C:000EH         LINE#         11
+  C:000FH         LINE#         12
+  C:0011H         LINE#         13
+  C:0014H         LINE#         14
+  C:0015H         LINE#         15
+  C:0016H         LINE#         16
+  -------         ENDMOD        02
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0011H BYTE ( 0%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0018H BYTE ( 1%) *
 ******************************************************************************
 
-Program Size: data=8.0 xdata=0 code=17
+Program Size: data=8.0 xdata=0 code=24
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

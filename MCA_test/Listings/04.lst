@@ -1,38 +1,37 @@
-A51 MACRO ASSEMBLER  04                                                                   04/20/2019 19:34:20 PAGE     1
+A51 MACRO ASSEMBLER  04                                                                   04/21/2019 10:32:52 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
-NO OBJECT MODULE REQUESTED
+OBJECT MODULE PLACED IN .\Objects\04.obj
 ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 04.asm SET(SMALL) DEBUG PRINT(.\Listings\04.lst) OBJECT(.\Objects\04.ob
                       j) EP
 
 LOC  OBJ            LINE     SOURCE
 
-                       1     ;4.     WAP to arrange series of ten 8-bit numbers in descending order. (UnVerified)
+                       1     ;4. WAP to arrange series of ten 8-bit numbers in descending order. (Verified)
                        2     
-0000 AB0A              3     mov R3,0AH
-0002 AC0A              4     Again:mov r4,0aH
-0004 7820              5     mov R0,#20H
-0006 C3                6     Clr C
-0007 E6                7     up:mov A,@R0
-0008 F9                8     mov R1,A
-0009 08                9     Inc R0
-000A E6               10     mov A,@R0
-000B                  11     CJNE A,R1
-*** _________________________^
-*** ERROR #A38 IN 11 (04.asm, LINE 11): NUMBER OF OPERANDS DOES NOT MATCH INSTRUCTION
-000B 8008             12     SJMP SKIP
-000D 5006             13     next:JNC SKIP
-000F E6               14     mov A,@R0
-0010 18               15     DEC R0
-0011 F6               16     mov @R0,A
-0012 E9               17     mov A,R1
-0013 08               18     Inc R0
-0014 F6               19     Mov @R0,A
-0015 DCF0             20     SKIP:DJNZ R4,up
-0017 DBE9             21     DJNZ R3,Again
-                      22     End
-A51 MACRO ASSEMBLER  04                                                                   04/20/2019 19:34:20 PAGE     2
+0000                   3     org 00h
+0000 7B0A              4     mov r3,#0ah
+0002 7C0A              5     again: mov r4,#0ah
+0004 7820              6     mov r0,#20h
+0006 C3                7     clr c
+0007 E6                8     up: mov a,@r0
+0008 F9                9     mov r1,a
+0009 08               10     inc r0
+000A E6               11     mov a,@r0
+000B 99               12     subb a,r1
+000C 4006             13     jc skip
+000E E6               14     mov a,@r0
+000F 18               15     dec r0
+0010 F6               16     mov @r0,a
+0011 E9               17     mov a,r1
+0012 08               18     inc r0
+0013 F6               19     mov @r0,a
+0014 DCF1             20     skip: djnz r4,up
+0016 DBEA             21     djnz r3,again
+0018 80FE             22     stop: sjmp stop
+*** WARNING #A41 IN 22 (04.asm, LINE 22): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  04                                                                   04/21/2019 10:32:52 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------
@@ -41,12 +40,12 @@ SYMBOL TABLE LISTING
 N A M E             T Y P E  V A L U E   ATTRIBUTES
 
 AGAIN. . . . . . .  C ADDR   0002H   A   
-NEXT . . . . . . .  C ADDR   000DH   A   
-SKIP . . . . . . .  C ADDR   0015H   A   
+SKIP . . . . . . .  C ADDR   0014H   A   
+STOP . . . . . . .  C ADDR   0018H   A   
 UP . . . . . . . .  C ADDR   0007H   A   
 
 
 REGISTER BANK(S) USED: 0 
 
 
-ASSEMBLY COMPLETE.  0 WARNING(S), 1 ERROR(S)
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)

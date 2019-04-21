@@ -1,0 +1,45 @@
+A51 MACRO ASSEMBLER  02                                                                   04/21/2019 10:32:52 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\02.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 02.asm SET(SMALL) DEBUG PRINT(.\Listings\02.lst) OBJECT(.\Objects\02.ob
+                      j) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;2.     WAP to find smallest number from a data block of 10 bytes.
+                       2     
+0000                   3     ORG 0000H
+0000 902500            4     MOV DPTR,#2500H
+0003 7A0A              5     MOV R2,#0AH
+0005 79FF              6     MOV R1,#0FFH
+0007 E0                7     UP: MOVX A,@DPTR
+0008 B50100            8     CJNE A, 01,NEXT
+000B 5001              9     NEXT: JNC DOWN
+000D F9               10     MOV R1,A
+000E A3               11     DOWN: INC DPTR
+000F DAF6             12     DJNZ R2,UP
+0011 90250A           13     MOV DPTR,#250AH
+0014 E9               14     MOV A,R1
+0015 F0               15     MOVX @DPTR,A
+0016 80FE             16     HERE: SJMP HERE
+                      17     end
+A51 MACRO ASSEMBLER  02                                                                   04/21/2019 10:32:52 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DOWN . . . . . . .  C ADDR   000EH   A   
+HERE . . . . . . .  C ADDR   0016H   A   
+NEXT . . . . . . .  C ADDR   000BH   A   
+UP . . . . . . . .  C ADDR   0007H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
