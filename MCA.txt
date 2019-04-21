@@ -252,6 +252,9 @@ djnz r3,up
 here: sjmp here
 end
 
+Memory block 1 -> d:20h
+Memory block 2 -> d:30h
+
 14.	WAP to transfer data blocks of 10 bytes from external memory to external memory. (File exp 1) (Verified)
 
 mov r0,#24h
@@ -266,6 +269,9 @@ inc dpl
 djnz r3,up
 here: sjmp here
 end
+
+Memory block 1 -> X:2400H
+Memory block 2 -> X:2500H
 
 15.	WAP to find 2’s complement of 16-bit number. (Verified)
 
@@ -294,6 +300,7 @@ mov r0,#22h  //8b in 22
 mov b,@r0
 mul ab 
 mov 23h,a  //lb1 in 23 
+
 mov r1,b  //hb1 in r1
 mov b,@r0  //hb of 16b in 21
 mov r0,#21h
@@ -413,14 +420,21 @@ mov a,@r0
 inc r0
 subb a,@r0
 da a
+jc down
 inc r0
 mov @r0,a
-stop: sjmp stop
+here: sjmp here
+down:cpl a
+inc a
+da a
+inc r0
+mov @r0,a
+inc r0
+clr a
+addc a,#00h
+mov @r0,a
+here1: sjmp here1
 end
-
-D:10 -> 1st number
-D:11 -> 2nd number
-D:12 -> Result
 
 22.	WAP to find sum of data block of 10-bytes. (Verified)
 
@@ -498,7 +512,7 @@ Follow the steps
 (Legacy support for Arm7, Arm9 & Cortex-R devices)
 
 
-26. ARM programs from File (Unverified)
+26. ARM programs from File (Verified)
 
 a. Add memory block of 10 32-bit numbers
 
@@ -543,43 +557,91 @@ exit	b exit
 
 c. Smallest Number using ARM-7
 
-   area smallest,code,readonly
+Data entry at with 10 32bit numbers --> 0x40000000 
+
+	area smallest,code,readonly
 entry
-	mov r0,#0x00
+	mov r0,#0x40000000
+	mov r1,#0xffffffff
+	mov r2,#0x0a
+up	ldr r3,[r0]
+	cmp r1,r3
+	bcc down
+	mov r1,r3
+down add r0,r0,#0x4
+	 subs r2,r2,#0x1
+	 bne up
+	 mov r4,#0x40000038
+	 str r1,[r4]
+here b here
+	end
+
+Data already entered ->
+
+	area smallest,code,readonly
+entry
+	mov r0,#0xff
 	mov r1,#0x0a
-	adr r2,array
 	mov r3,#0
+	adr r2,data
 loop ldr r4,[r2,r3]
 	cmp r0,r4
-	bcc carry
-carr2 add r3,r3,#4
-	subs r1,r1,#1
-	bne loop
-stop b stop
-carry mov r0,r4
-	b carr2
+	bcc down
+	mov r0,r4
+down add r3,r3,#4
+	 subs r1,r1,#1
+	 bne loop
+	 mov r5,#0x40000000
+	 str r0,[r5]
+here b here
 	align
-array dcd 2,4,9,8,4,7,3,2,1,0
+data dcd 11,12,13,14,41,6,3,8,2,92
 	end
+
 
 d. Largest Number using ARM-7
 
-   area largest,code,readonly
+Data entry at with 10 32bit numbers --> 0x40000000 
+
+		area largest,code,readonly
 entry
 	mov r0,#0x40000000
 	mov r1,#0x0
-	mov r2,#0x0A
+	mov r2,#0xa
 up	ldr r3,[r0]
 	cmp r1,r3
 	bcs down
 	mov r1,r3
-down	add r0,r0, #0x4
-	subs r2,r2,#0x1
-	bne up
-	mov r4,#0x40000038
-	str r1,[r4]
-here	b here
-end
+down add r0,r0,#4
+	 subs r2,r2,#1
+	 bne up
+	 mov r4,#0x40000038
+	 str r1,[r4]
+here b here
+	 end
+
+Data already entered ->
+
+	area large,code,readonly
+entry
+	mov r0,#0x0
+	mov r1,#0x0a
+	mov r3,#0
+	adr r2,data
+loop ldr r4,[r2,r3]
+	cmp r0,r4
+	bcs down
+	mov r0,r4
+down add r3,r3,#4
+	 subs r1,r1,#1
+	 bne loop
+	 mov r5,#0x40000000
+	 str r0,[r5]
+here b here
+	 align
+data dcd 11,12,13,14,15,16,14,13,12,20
+	end
+	
 
 
 e. 7-segment display using ARM-7 (cancelled - no proteus)

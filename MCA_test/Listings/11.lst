@@ -1,0 +1,44 @@
+A51 MACRO ASSEMBLER  11                                                                   04/21/2019 19:56:08 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\11.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 11.asm SET(SMALL) DEBUG PRINT(.\Listings\11.lst) OBJECT(.\Objects\11.ob
+                      j) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;11. WAP to exchange data block of 10 bytes without exchange instruction. (Verified)
+                       2     
+0000 7820              3     mov r0,#20h
+0002 7930              4     mov r1,#30h
+0004 7B0A              5     mov r3,#0ah
+                       6     
+0006 E6                7     up: mov a,@r0
+0007 FA                8     mov r2,a
+0008 E7                9     mov a,@r1
+0009 F6               10     mov @r0,a
+000A EA               11     mov a,r2
+000B F7               12     mov @r1,a
+000C 08               13     inc r0
+000D 09               14     inc r1
+000E DBF6             15     djnz r3,up
+0010 80FE             16     here: sjmp here
+                      17     end
+                                     
+A51 MACRO ASSEMBLER  11                                                                   04/21/2019 19:56:08 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+HERE . . . . . . .  C ADDR   0010H   A   
+UP . . . . . . . .  C ADDR   0006H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,4 +1,3 @@
-
 ;15.	WAP to find 2’s complement of 16-bit number. (Verified)
 
 mov R0,#30H

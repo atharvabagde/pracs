@@ -1,0 +1,43 @@
+A51 MACRO ASSEMBLER  14                                                                   04/21/2019 20:49:09 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\14.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 14.asm SET(SMALL) DEBUG PRINT(.\Listings\14.lst) OBJECT(.\Objects\14.ob
+                      j) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;14.    WAP to transfer data blocks of 10 bytes from external memory to external memory. (F
+                             ile exp 1) (Verified)
+                       2     
+0000 7824              3     mov r0,#24h
+0002 7925              4     mov r1,#25h
+0004 758200            5     mov dpl,#00h
+0007 7B0A              6     mov r3,#0ah
+0009 8883              7     up: mov dph,r0
+000B E0                8     movx a,@dptr
+000C 8983              9     mov dph,r1
+000E F0               10     movx @dptr,a
+000F 0582             11     inc dpl
+0011 DBF6             12     djnz r3,up
+0013 80FE             13     here: sjmp here
+                      14     end
+A51 MACRO ASSEMBLER  14                                                                   04/21/2019 20:49:09 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+HERE . . . . . . .  C ADDR   0013H   A   
+UP . . . . . . . .  C ADDR   0009H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

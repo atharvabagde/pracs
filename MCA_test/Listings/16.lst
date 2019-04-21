@@ -1,0 +1,43 @@
+A51 MACRO ASSEMBLER  16                                                                   04/21/2019 21:32:58 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\16.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 16.asm SET(SMALL) DEBUG PRINT(.\Listings\16.lst) OBJECT(.\Objects\16.ob
+                      j) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;16.    WAP to multiply 16-bit no. into 8-bit number. (Verified)
+                       2     
+0000 7820              3     mov r0,#20h
+0002 E6                4     mov a,@r0
+0003 7822              5     mov r0,#22h
+0005 86F0              6     mov b,@r0
+0007 A4                7     mul ab
+0008 F523              8     mov 23h,a
+000A A9F0              9     mov r1,b
+000C 86F0             10     mov b,@r0
+000E 7821             11     mov r0,#21h
+0010 E6               12     mov a,@r0
+0011 A4               13     mul ab
+0012 F524             14     mov 24h,a
+0014 E5F0             15     mov a,b
+0016 3400             16     addc a,#00h
+0018 F525             17     mov 25h,a
+                      18     end
+A51 MACRO ASSEMBLER  16                                                                   04/21/2019 21:32:58 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

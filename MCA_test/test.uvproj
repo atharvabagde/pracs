@@ -377,9 +377,9 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>06.asm</FileName>
+              <FileName>16.asm</FileName>
               <FileType>2</FileType>
-              <FilePath>.\06.asm</FilePath>
+              <FilePath>.\16.asm</FilePath>
             </File>
           </Files>
         </Group>
@@ -465,6 +465,11 @@
               <FilePath>.\05.asm</FilePath>
             </File>
             <File>
+              <FileName>06.asm</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\06.asm</FilePath>
+            </File>
+            <File>
               <FileName>07.asm</FileName>
               <FileType>2</FileType>
               <FilePath>.\07.asm</FilePath>
@@ -508,11 +513,6 @@
               <FileName>15.asm</FileName>
               <FileType>2</FileType>
               <FilePath>.\15.asm</FilePath>
-            </File>
-            <File>
-              <FileName>16.asm</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\16.asm</FilePath>
             </File>
             <File>
               <FileName>17.asm</FileName>

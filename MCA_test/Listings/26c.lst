@@ -1,0 +1,86 @@
+A51 MACRO ASSEMBLER  26C                                                                  04/21/2019 20:03:44 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+NO OBJECT MODULE REQUESTED
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 26c.asm SET(SMALL) DEBUG PRINT(.\Listings\26c.lst) OBJECT(.\Objects\26c
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;26c. Smallest Number using ARM-7
+                       2     
+                       3     
+                       4                     area smallest,code,readonly
+*** _________________________________________^
+*** ERROR #A9 IN 4 (26c.asm, LINE 4): SYNTAX ERROR
+                       5     entry   MOV R0,#0X40000000
+*** _________________________^
+*** ERROR #A9 IN 5 (26c.asm, LINE 5): SYNTAX ERROR
+0000 79FF              6                     MOV R1,#0XFFFFFFFF
+0002 7A0A              7                     MOV R2,#0X0A
+                       8     UP      LDR R3,[R0]
+*** _________________________^
+*** ________________________________________^
+*** ___________________________________________^
+*** ERROR #A9 IN 8 (26c.asm, LINE 8): SYNTAX ERROR
+*** ERROR #A3 IN 8 (26c.asm, LINE 8): ILLEGAL CHARACTER
+*** ERROR #A3 IN 8 (26c.asm, LINE 8): ILLEGAL CHARACTER
+                       9                     CMP R1,R3
+*** _________________________________________^
+*** ERROR #A9 IN 9 (26c.asm, LINE 9): SYNTAX ERROR
+                      10                     BCC DOWN
+*** _________________________________________^
+*** ERROR #A9 IN 10 (26c.asm, LINE 10): SYNTAX ERROR
+0004                  11                     MOV R1,R3
+*** _____________________________________________^
+*** ERROR #A40 IN 11 (26c.asm, LINE 11): INVALID REGISTER
+                      12     DOWN    ADD R0,R0,#0X4
+*** _________________________^
+*** ERROR #A9 IN 12 (26c.asm, LINE 12): SYNTAX ERROR
+                      13                     SUBS R2,R2,#0X1
+*** _________________________________________^
+*** ERROR #A9 IN 13 (26c.asm, LINE 13): SYNTAX ERROR
+                      14                     BNE UP
+*** _________________________________________^
+*** ERROR #A9 IN 14 (26c.asm, LINE 14): SYNTAX ERROR
+0004 7C38             15                     MOV R4,#0X40000038
+                      16                     STR R1,[R4]
+*** _________________________________________^
+*** ________________________________________________^
+*** ___________________________________________________^
+*** ERROR #A9 IN 16 (26c.asm, LINE 16): SYNTAX ERROR
+*** ERROR #A3 IN 16 (26c.asm, LINE 16): ILLEGAL CHARACTER
+*** ERROR #A3 IN 16 (26c.asm, LINE 16): ILLEGAL CHARACTER
+                      17     HERE    B HERE
+*** _________________________^
+*** ERROR #A9 IN 17 (26c.asm, LINE 17): SYNTAX ERROR
+                      18                     END
+A51 MACRO ASSEMBLER  26C                                                                  04/21/2019 20:03:44 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AREA . . . . . . .    ----   -----       
+B. . . . . . . . .  D ADDR   00F0H   A   
+BCC. . . . . . . .    ----   -----       
+BNE. . . . . . . .    ----   -----       
+CMP. . . . . . . .    ----   -----       
+DOWN . . . . . . .    ----   -----       
+ENTRY. . . . . . .    ----   -----       
+HERE . . . . . . .    ----   -----       
+LDR. . . . . . . .    ----   -----       
+READONLY . . . . .    ----   -----       
+SMALLEST . . . . .    ----   -----       
+STR. . . . . . . .    ----   -----       
+SUBS . . . . . . .    ----   -----       
+UP . . . . . . . .    ----   -----       
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 15 ERROR(S)

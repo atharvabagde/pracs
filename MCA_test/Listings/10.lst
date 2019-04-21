@@ -1,8 +1,8 @@
-A51 MACRO ASSEMBLER  10                                                                   04/20/2019 22:59:15 PAGE     1
+A51 MACRO ASSEMBLER  10                                                                   04/21/2019 19:28:40 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
-NO OBJECT MODULE REQUESTED
+OBJECT MODULE PLACED IN .\Objects\10.obj
 ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 10.asm SET(SMALL) DEBUG PRINT(.\Listings\10.lst) OBJECT(.\Objects\10.ob
                       j) EP
 
@@ -10,20 +10,18 @@ LOC  OBJ            LINE     SOURCE
 
                        1     ;10. WAP to exchange data blocks of 10 bytes. (Verified)
                        2     
-0000 7830              3     mov R0,#30H
-0002 7940              4     mov R1,#40H
-0004 7A0A              5     mov R2 ,#0AH
-0006 E6                6     up: mov A,@R0
-0007 C7                7     XCH A,@R1
-0008                   8     mov @R0,A.
-*** __________________________________^
-*** ERROR #A9 IN 8 (10.asm, LINE 8): SYNTAX ERROR
-0008 08                9     inc R0
-0009 09               10     inc R1
-000A DAFA             11     DJNZ R2,up
-000C 80FE             12     here: SJMP here
+0000 7830              3     mov r0,#30h
+0002 7940              4     mov r1,#40h
+0004 7A0A              5     mov r2,#0ah
+0006 E6                6     up: mov a,@r0
+0007 C7                7     xch a,@r1
+0008 F6                8     mov @r0,a
+0009 08                9     inc r0
+000A 09               10     inc r1
+000B DAF9             11     djnz r2,up
+000D 80FE             12     here: sjmp here
                       13     end
-A51 MACRO ASSEMBLER  10                                                                   04/20/2019 22:59:15 PAGE     2
+A51 MACRO ASSEMBLER  10                                                                   04/21/2019 19:28:40 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------
@@ -31,11 +29,11 @@ SYMBOL TABLE LISTING
 
 N A M E             T Y P E  V A L U E   ATTRIBUTES
 
-HERE . . . . . . .  C ADDR   000CH   A   
+HERE . . . . . . .  C ADDR   000DH   A   
 UP . . . . . . . .  C ADDR   0006H   A   
 
 
 REGISTER BANK(S) USED: 0 
 
 
-ASSEMBLY COMPLETE.  0 WARNING(S), 1 ERROR(S)
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

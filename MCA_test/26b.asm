@@ -1,4 +1,4 @@
-;b. Perform Math operations - add, sub, mul
+;26b. Perform Math operations - add, sub, mul
 
 		area maths, code, readonly
 entry
