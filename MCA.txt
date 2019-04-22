@@ -445,7 +445,6 @@ inc r0
 inc r0
 mov @r0,a
 here: sjmp here
-
 down: inc r0
 mov a,@r0
 mov r2,a
@@ -462,6 +461,11 @@ mov @r0,a
 here1: sjmp here1
 end
 
+//Input -> d:20h first number 
+//d:21h -> second number 
+//Output --> d:22h
+// 22-11=11
+// 11-22=89
 
 22.	WAP to find sum of data block of 10-bytes. (Verified)
 
